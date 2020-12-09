@@ -17,8 +17,8 @@
 - name: Run NSLookup
   import_tasks: nslookup.yml
 
-- name: install oracle jdk
-  import_tasks: oracle-jdk.yml
+#- name: install oracle jdk
+  #import_tasks: oracle-jdk.yml
 
 - name: Firewall Disable
   import_tasks: firewall-disable.yml
