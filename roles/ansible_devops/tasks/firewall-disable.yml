@@ -1,0 +1,7 @@
+   #Firewall Disable on VM
+   - name: Stop and disable firewalld.
+     become: yes
+     service:
+       name: firewalld
+       state: stopped
+       enabled: False

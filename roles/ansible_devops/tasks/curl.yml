@@ -1,0 +1,14 @@
+# Create directory
+- name: create /opt/helloworld directory
+  become: yes
+  file:
+    path: /opt/helloworld
+    state: directory
+    mode: 0755
+
+- name: Download helloworld
+  become: yes
+  get_url:
+    url: http://www.java2s.com/Code/JarDownload/hello/hello-world-3.1.5.jar.zip
+    dest: /opt/helloworld/hello-world-3.1.5.jar.zip
+    mode: '0755'

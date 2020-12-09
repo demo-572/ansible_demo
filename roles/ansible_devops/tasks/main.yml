@@ -1,0 +1,24 @@
+---
+- name: Apache webserver installation
+  import_tasks: apache_web.yml
+
+- name: Tomcat Application Server installation
+  import_tasks: tomcat.yml
+
+- name: MySQL DB installation
+  import_tasks: mysql.yml
+
+#- name: Run Telnet
+ # import_tasks: telnet.yml
+
+- name: Run Curl
+  import_tasks: curl.yml
+
+- name: Run NSLookup
+  import_tasks: nslookup.yml
+
+- name: install oracle jdk
+  import_tasks: oracle-jdk.yml
+
+- name: Firewall Disable
+  import_tasks: firewall-disable.yml

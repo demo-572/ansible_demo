@@ -1,0 +1,26 @@
+---
+- name: General | Instalacion de paquetes requeridos.
+  become: true
+  yum:
+    state: present
+    name:
+      - mysql-server
+      - python3-pip
+      - libmysqlclient-dev
+      - python3-dev
+      - python3-mysqldb
+
+# Create directory
+- name: create /opt/mysql directory
+  become: yes
+  file:
+    path: /opt/mysql
+    state: directory
+    mode: 0755
+
+- name: Download sources
+  become: yes
+  get_url:
+        url: http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
+        dest: /opt/mysql
+

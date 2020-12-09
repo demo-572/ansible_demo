@@ -1,0 +1,19 @@
+---
+- name: Add the webupd8 APT repository
+  become: yes
+  apt_repository: repo="deb http://ppa.launchpad.net/webupd8team/java/ubuntu precise main" state=present
+
+- name: Automatically select the Oracle License
+  become: yes
+  shell: echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections
+  changed_when: false
+
+- name: Install Oracle Java
+  become: yes
+  yum: 
+    name:
+      - oracle-java8-installer
+
+- name: Set JAVA_HOME
+  become: yes
+  shell: sudo echo "export JAVA_HOME=/usr/lib/jvm/java-8-oracle" >> ~/.bashrc

@@ -1,0 +1,6 @@
+---
+- name: Register nslookup hostname result
+  become: yes
+  shell: "nslookup {{ server_name }}"
+  register: ns
+- debug: var=ns.stdout_lines

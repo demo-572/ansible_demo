@@ -1,0 +1,6 @@
+---
+- hosts: ec2_vm
+  roles:
+    - ansible_devops
+  vars:
+    server_name: 3.101.134.242
